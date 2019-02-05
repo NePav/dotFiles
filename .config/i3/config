@@ -175,10 +175,10 @@ gaps outer 10
 # i3status replacer with i3blocks. 
 # Install https://github.com/vivien/i3blocks
 bar {
-	status_command i3blocks status_command i3blocks -c ~/.config/i3blocks/config
-#	status_command i3status
+	status_command i3blocks -c ~/.config/i3blocks/config
+	#status_command i3status
         position top
-        font pango: sans 10
+        font pango: sans 11
 
          colors{
                background #244452
