@@ -128,7 +128,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -162,6 +161,15 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# Remove title bar to enable i3gaps
+# Install from: https://github.com/Airblader/i3
+for_window [class=".*"] border pixel 0
+
+# Add gaps
+gaps inner 20
+gaps outer 10
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # i3status replacer with i3blocks. 
@@ -173,7 +181,7 @@ bar {
         font pango: sans 10
 
          colors{
-               background #232323
+               background #244452
                statusline #DCDCDC
 	}
 
@@ -183,24 +191,18 @@ bar {
 bindsym $mod+shift+x exec i3lock
 
 # Set background picture
-exec_always feh --bg-scale ~/Pictures/Background/13.jpg
+exec_always feh --bg-scale ~/Pictures/Background/21.jpg
 
 # Run Compton (window transparency extension)
 exec_always compton ~/.config/compton.conf
 
-# Add gaps
-gaps inner 10
-gaps outer 10
+
 
 # Window borders
 client.focused          #3F8AC2 #096BAA #00BAA7 #00DA8E
 client.focused_inactive #333333 #5F676A #ffffff #484e50
 client.unfocused        #333333 #424242 #888888 #292d2e 
 client.urgent           #C10004 #900000 #ffffff #900000
-
-
-# Remove title bar
-for_window [class=".*"] border pixel 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -211,7 +213,7 @@ font pango:DejaVu Sans Book 9
 # run this outside the config	
 # sudo apt-get install lxappearance gtk-chtheme qt4-qtconfig
 # Go to lxappearance and chose the theme
- exec --no-startup-id gnome-settings-daemon 
+exec --no-startup-id gnome-settings-daemon 
 
 # Network Manager applet
 exec --no-startup-id nm-applet
@@ -229,8 +231,8 @@ bindsym $mod+Shift+s mode "$mode_screenshot"
 mode "$mode_screenshot" {
 
     #bindsym s exec maim --opengl --magnify -s ~/Desktop/screenshot-$(date +%F-%H%M%S).png, mode "default"
-    bindsym s exec maim -s ~/Desktop/screenshot-$(date +%F-%H%M%S).jpg, mode "default"
-    bindsym f exec maim ~/Desktop/screenshot-$(date +%F-%H%M%S).jpg, mode "default"
+    bindsym s exec maim -s ~/Pictures/screenshot-$(date +%F-%H%M%S).jpg, mode "default"
+    bindsym f exec maim ~/Pictures/screenshot-$(date +%F-%H%M%S).jpg, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -240,9 +242,9 @@ mode "$mode_screenshot" {
 # exec_always ~/.screenlayout/2_screen_layout.sh
 
 # Monitor confguration loads
-bindsym $mod+F1 exec ~/.screenlayout/1_screen_layout.sh
+bindsym $mod+F1 exec ~/.screenlayout/laptop_only.sh
 bindsym $mod+F2 exec ~/.screenlayout/2_screen_layout.sh
-bindsym $mod+F3 exec ~/.screenlayout/1_big_screen_layout.sh
+bindsym $mod+F3 exec ~/.screenlayout/external_only.sh
 
 
 
