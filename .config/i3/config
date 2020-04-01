@@ -43,10 +43,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+odiaeresis focus right
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -55,16 +55,23 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+odiaeresis move right
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
+
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym $mod+Shift+j move workspace to output left
+bindsym $mod+Shift+l move workspace to output right
+bindsym $mod+Shift+i move workspace to output up
+bindsym $mod+Shift+k move workspace to output down
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -267,6 +274,8 @@ bindsym $mod+F2 exec ~/.screenlayout/2_screen_layout.sh
 bindsym $mod+F3 exec ~/.screenlayout/external_only.sh
 bindsym $mod+F4 exec ~/.screenlayout/1_screen_home_layout.sh
 bindsym $mod+F5 exec ~/.screenlayout/2_screen_home_layout.sh
+bindsym $mod+F6 exec ~/.screenlayout/2_screen_office_layout_temp.sh
+
 
 
 # Pres $mod + Backspace to chose loc or suspend or... 
