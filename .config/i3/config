@@ -99,11 +99,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1: Browser"
-set $ws2 "2: Email and Comms"
+set $ws1 "1: Private"
+set $ws2 "2: Email and Cal"
 set $ws3 "3: Trello"
-set $ws4 "4: Terminals"
-set $ws5 "5"
+set $ws4 "4: Comms"
+set $ws5 "5: PPTs"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
@@ -143,8 +143,10 @@ bindsym XF86AudioMute 		exec --no-startup-id "amixer -D pulse set Master Playbac
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -174,31 +176,25 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-
 # Remove title bar to enable i3gaps
 # Install from: https://github.com/Airblader/i3
-for_window [class=".*"] border pixel 3
+for_window [class=".*"] border pixel 5
 
 # Add gaps
-gaps inner 10
+gaps inner 20
 gaps outer 5
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-# i3status replacer with i3blocks. 
-# Install https://github.com/vivien/i3blocks
 bar {
-	#status_command i3blocks -c ~/.config/i3blocks2/i3blocks.conf
-	status_command i3blocks -c ~/.config/i3blocks/config
+	status_command i3blocks -v -c /etc/i3blocks.conf
 	#status_command i3status
         position top
         font pango: sans 11
-
-         colors{
+        colors{
                background #244452
                statusline #DCDCDC
 	}
-
 }
 
 # Set lockscreen to binding $mod + shift + x
@@ -208,9 +204,7 @@ bindsym $mod+shift+x exec i3lock
 exec_always feh --bg-scale ~/Pictures/Background/21.jpg
 
 # Run Compton (window transparency extension)
-exec_always compton ~/.config/compton.conf
-
-
+exec_always compton /etc/i3/compton.conf
 
 # Window borders
 client.focused          #3F8AC2 #096BAA #00BAA7 #00DA8E

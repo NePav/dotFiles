@@ -26,11 +26,11 @@
 # Each block command defaults to the script name to avoid boilerplate.
 # Change $SCRIPT_DIR to the location of your scripts!
 #
-# My $SCRIPT_DIR=~/.config/i3blocks
-# command=~/.config/i3blocks/$BLOCK_NAME
-set $SCRIPT_DIR=~/.config/i3blocks/
-command=$SCRIPT_DIR/$BLOCK_NAME
-# command=~/.config/i3blocks/$BLOCK_NAME
+# My $SCRIPT_DIR=/usr/share/i3blocks
+# set $SCRIPT_DIR=/usr/share/i3blocks
+#command=$SCRIPT_DIR/$BLOCK_NAME
+#command=/usr/share/i3blocks/$BLOCK_NAME
+
 separator_block_width=20
 markup=pango
 
@@ -41,7 +41,7 @@ markup=pango
 # See the script for details.
 
 [volume]
-command=~/.config/i3blocks/volume/volume
+command=/usr/share/i3blocks/volume
 label=♪:
 # label=VOL
 interval=once
@@ -52,7 +52,7 @@ signal=10
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-command=~/.config/i3blocks/memory/memory
+command=/usr/share/i3blocks/memory
 label=MEM:
 separator=false
 interval=30
@@ -63,7 +63,7 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 #[disk]
-#command=~/.config/i3blocks/disk/disk
+#command=/usr/share/i3blocks/disk
 #label=HOME:
 ## DIR=/mnt/data
 #interval=30
@@ -73,7 +73,7 @@ interval=30
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
 [iface]
-command=~/.config/i3blocks/iface/iface
+command=/usr/share/i3blocks/iface
 #IFACE=wlan0
 label=IFACE:
 color=#00FF00
@@ -81,7 +81,7 @@ interval=10
 separator=false
 
 [wifi]
-command=~/.config/i3blocks/wifi/wifi
+command=/usr/share/i3blocks/wifi
 #INTERFACE=wlp3s0
 label=WIFI:
 interval=10
@@ -96,22 +96,12 @@ separator=false
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-command=~/.config/i3blocks/cpu_usage/cpu_usage
+command=/usr/share/i3blocks/cpu_usage
 label=CPU:
 interval=10
 min_width=CPU 100.00%
 #separator=false
 
-[cpu_usage2]
-command=~/.config/i3blocks/cpu_usage2/cpu_usage2
-markup=pango
-interval=persist
-#min_width=CPU 100.00%
-#REFRESH_TIME=1
-LABEL=CPU:
-#WARN_PERCENT=50
-#CRIT_PERCENT=80
-#DECIMALS=2
 
 #[load_average]
 #label=LOAD
@@ -121,28 +111,10 @@ LABEL=CPU:
 #
 # The battery instance defaults to 0.
 [battery]
-command=~/.config/i3blocks/battery/battery
+command=/usr/share/i3blocks/battery
 #label=BAT
 label=⚡:
 interval=30
-
-#[batterybar]
-#command=~/.config/i3blocks/batterybar/batterybar
-#label=bat:
-#interval=5
-#min_width=bat: ■■■■■
-# Discharging colors low to high
-#C1=#FF0027
-#C2=#FF3B05
-#C3=#FFB923
-#C4=#FFD000
-#C5=#E4FF00
-#C6=#ADFF00
-#C7=#6DFF00
-#C8=#10BA00
-#CHARGING_COLOR=#00AFE3
-#FULL_COLOR=#FFFFFF
-#AC_COLOR=#535353
 
 #
 # Date Time
