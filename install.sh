@@ -18,9 +18,9 @@ sudo apt install i3blocks
 sudo apt-get install git
 
 # Generate and install git key
-ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa_git
+ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa
 eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa_git
+ssh-add ~/.ssh/id_rsa
 
 # Clone my config files git repo
 cd Documents
@@ -52,6 +52,9 @@ sudo apt install arandr
 # Installing feh and copy background wallpapers
 sudo apt-get install feh
 cp -r Background/ ~/Pictures/
+
+#Install flameshot
+sudo apt install flameshot
 
 echo 'Logout from Gnome and log-in using i3-debug-WM)'
 

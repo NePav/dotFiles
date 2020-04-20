@@ -247,20 +247,6 @@ mode "$mode_screenshot" {
     bindsym Escape mode "default"
 }
 
-#mode "$mode_screenshot" {
-#
-#    #bindsym s exec maim --opengl --magnify -s ~/Pictures/Screenshots/screenshot-$(date +%F-%H%M%S).png, mode "default"
-#    bindsym s exec maim -s ~/Pictures/Screenshots/screenshot-$(date +%F-%H%M%S).jpg, mode "default"
-#    bindsym f exec maim ~/Pictures/Screenshots/screenshot-$(date +%F-%H%M%S).jpg, mode "default"
-#
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#}
-
-
-
-# Screens config
-# exec_always ~/.screenlayout/2_screen_layout.sh
 
 # Monitor confguration loads
 bindsym $mod+F1 exec ~/.screenlayout/laptop_only.sh
