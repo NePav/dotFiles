@@ -124,7 +124,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 ## Install https://github.com/ckb-next/ckb-next/wiki/Linux-Installation
 bindsym XF86AudioRaiseVolume 	exec --no-startup-id "amixer -D pulse set Master Playback Volume 1%+"
 bindsym XF86AudioLowerVolume 	exec --no-startup-id "amixer -D pulse set Master Playback Volume 1%-"
-bindsym XF86AudioMute 		exec --no-startup-id "amixer -D pulse set Master Playback Switch toggle"
+bindsym XF86AudioMute 		    exec --no-startup-id "amixer -D pulse set Master Playback Switch toggle"
 
 ## reload the configuration file
 bindsym $mod+Shift+c reload
@@ -143,7 +143,7 @@ mode "resize" {
         # Pressing down will grow the window’s height.
         bindsym Left 	resize shrink 	width	4 px or 4 ppt
         bindsym Down 	resize grow 	height	4 px or 4 ppt
-        bindsym Up 	resize shrink 	height	4 px or 4 ppt
+        bindsym Up 	    resize shrink 	height	4 px or 4 ppt
         bindsym Right 	resize grow 	width	4 px or 4 ppt
 
         # back to normal: Enter or Escape
@@ -164,27 +164,27 @@ for_window [class=".*"] border pixel 2
 gaps inner 30
 gaps outer 5
 
-bindsym $mod+z			gaps outer current plus 5
-bindsym $mod+Shift+z		gaps outer current minus 5
-bindsym $mod+less		gaps inner current plus 5
-bindsym $mod+Shift+greater	gaps inner current minus 5
+bindsym $mod+z			    gaps outer current plus     5
+bindsym $mod+Shift+z		gaps outer current minus    5
+bindsym $mod+less		    gaps inner current plus     5
+bindsym $mod+Shift+greater	gaps inner current minus    5
 
 ## Start i3bar to display a workspace bar (plus the system information i3status if available)
-#bar {
-#	status_command i3blocks -v -c /etc/i3blocks.conf
-#        position top
-#        font pango: sans 9
-#        colors{
-#               background #1E272B
-#               statusline #EAD49B
-#	}
-#}
+bar {
+	status_command i3blocks -v -c $HOME/.config/i3blocks/i3blocks.conf
+        position top
+        font pango: sans 9
+        colors{
+               background #1E272B
+               statusline #EAD49B
+	}
+}
 
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+## Launch Polybar
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ## Set lockscreen to binding $mod + shift + x
-bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec i3lock-fancy
 
 ## Set background picture
 exec_always feh --bg-scale ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
@@ -192,12 +192,12 @@ exec_always feh --bg-scale ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
 ## Run Compton (window transparency extension)
 exec_always compton --config /etc/i3/compton.conf
 
-client.background		#1E272B
-client.focused			#EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
-client.unfocused		#EAD49B #1E272B #EAD49B #78824B #78824B
-client.focused_inactive	#EAD49B #1E272B #EAD49B #78824B #78824B
-client.urgent			#EAD49B #1E272B #EAD49B #78824B #78824B
-client.placeholder		#EAD49B #1E272B #EAD49B #78824B #78824B
+client.background		    #1E272B
+client.focused			    #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
+client.unfocused		    #EAD49B #1E272B #EAD49B #78824B #78824B
+client.focused_inactive	    #EAD49B #1E272B #EAD49B #78824B #78824B
+client.urgent			    #EAD49B #1E272B #EAD49B #78824B #78824B
+client.placeholder		    #EAD49B #1E272B #EAD49B #78824B #78824B
 
 
 
@@ -220,7 +220,8 @@ exec --no-startup-id nm-applet
 ## exec --no-startup-id xautolock -time 4 -locker "i3lock-wrapper -l"
 
 ## Run Redshift (dimmers down blue light during late-night hours)
-exec_always redshift
+#exec_always redshift-gtk
+exec --no-startup-id redshift-gtk
 
 ## Press $mod+Shift+s s or f to take a screen shot
 set $mode_screenshot Screenshot [s]election [f]ullscreen

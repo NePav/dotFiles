@@ -16,6 +16,7 @@ sudo apt-get install i3
 sudo apt-get install i3-wm
 sudo apt-get install i3-wm-dbg
 sudo apt-get install i3-blocks
+sudo apt-get install i3lock
 sudo apt-get install i3lock-fancy
 sudo apt-get install i3status
 sudo apt-get install i3
@@ -30,28 +31,28 @@ sudo apt-get install i3-gaps-wm
 ## Colors: https://github.com/unix121/i3wm-themer/blob/master/themes/001.json
 ## During the build process answer Yes to all the options (except the first on on using GCC instead of CLang if available). And in the end say Yes to run sudo make install.
 
-sudo apt-get install \
-  cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev \
-  libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
-  libxcb-util0-dev libxcb-xkb-dev pkg-config python3-xcbgen \
-  xcb-proto libxcb-xrm-dev libasound2-dev libmpdclient-dev \
-  libiw-dev libcurl4-openssl-dev libpulse-dev \
-  libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
+#sudo apt-get install \
+#  cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev \
+#  libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
+#  libxcb-util0-dev libxcb-xkb-dev pkg-config python3-xcbgen \
+#  xcb-proto libxcb-xrm-dev libasound2-dev libmpdclient-dev \
+#  libiw-dev libcurl4-openssl-dev libpulse-dev \
+#  libxcb-composite0-dev xcb libxcb-ewmh2 libjsoncpp-dev
 
-cd /tmp
-git clone https://github.com/jaagr/polybar.git
-cd polybar
-git tag # see what version do you need
+#cd /tmp
+#git clone https://github.com/jaagr/polybar.git
+#cd polybar
+#git tag # see what version do you need
 ## Update version from 3.5.0 to the latest based on tag output
-git checkout 3.5.0
-./build.sh
+#git checkout 3.5.0
+#./build.sh
 
-cd dotFiles
+#cd dotFiles
 
 # Copy config file and launch.sh
-sudo cp /polybar/config $HOME/.config/polybar/config
-sudo cp /polybar/launch.sh $HOME/.config/polybar/launch.sh
-sudo chmod +x $HOME/.config/polybar/launch.sh
+#sudo cp /polybar/config $HOME/.config/polybar/config
+#sudo cp /polybar/launch.sh $HOME/.config/polybar/launch.sh
+#sudo chmod +x $HOME/.config/polybar/launch.sh
 ## !!! END of OPTIONAL - instead of i3-Blocks !!!
 
 
@@ -64,12 +65,15 @@ sudo apt-get install git
 ## Install compton
 sudo apt install compton
 
-
 ## Install ARandR
 sudo apt install arandr
 
 ## Install feh
 sudo apt-get install feh
+
+## Install Redshift (screen blue colour dimmer)
+sudo apt-get redshift-gtk
+sudo apt-get redshift
 
 ## Generate and install git key
 ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa
