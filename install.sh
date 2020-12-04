@@ -75,10 +75,20 @@ sudo apt-get install feh
 sudo apt-get redshift-gtk
 sudo apt-get redshift
 
+## Install and configure Git
+sudo app install git
+git config --global user.name   "NePav"
+git config --global user.email  "nenad.pavlovic@sentian.ai"
+
+## In case of lsot git keys do the following:
 ## Generate and install git key
-ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_rsa
+#ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_rsa
+##
+## Else, migrate the existing keys!!!
+## Generating new keys will require updating those to all places, such as git, 
+## where they are used.
 
 ## Clone my config files git repo
 cd Documents
@@ -132,10 +142,5 @@ git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1
 cd nerd-fonts
 ./install.sh
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-
-
-
-
-
 
 
