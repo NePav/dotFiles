@@ -11,7 +11,10 @@ chsh -s /usr/bin/fish
 sudo apt install git
 git config --global user.name   "NePav"
 git config --global user.email  "nenad.pavlovic@sentian.ai"
+<<<<<<< HEAD
 git config --global color.ui auto
+=======
+>>>>>>> bff3fed53d131e9ba41acc5847723f6e925c8cee
 
 ## Copy and register old SSH keys
 #cp /path/to/my/key/id_rsa ~/.ssh/id_rsa
@@ -56,6 +59,7 @@ sudo apt install flameshot
 
 ## Install htop
 sudo apt install htop
+<<<<<<< HEAD
 
 ## Install urxvt terminal
 sudo apt install rxvt-unicode
@@ -81,6 +85,8 @@ wal -i ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
 
 ## Rofi is a launcher similar to dmenu that we used in the beginnings, but it is better. 
 sudo apt isntall rofi
+=======
+>>>>>>> bff3fed53d131e9ba41acc5847723f6e925c8cee
 
 ## i3wm Ubuntu repository. Maybe must run these commented lines manualy!
 /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
@@ -154,6 +160,12 @@ sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.config /etc/i3bloc
 
 ## Copy compton config file
 sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf /etc/i3/
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> bff3fed53d131e9ba41acc5847723f6e925c8cee
 
 echo 'Logout from Gnome and log-in using i3-debug-WM)'
 
