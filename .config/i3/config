@@ -53,7 +53,10 @@ set $mod Mod4
 floating_modifier $mod
 
 ## start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
+## Install urxvt terminal
+bindsym $mod+Return exec urxvt
+
 
 ## kill focused window
 bindsym $mod+Shift+q kill
@@ -65,6 +68,7 @@ bindsym $mod+Shift+q kill
 ## shipping a .desktop file. It is a wrapper around dmenu, so you need that
 ## installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id Dexec rofi -show run
 
 ## change focus
 bindsym $mod+$left 	focus left
@@ -111,6 +115,7 @@ bindsym $mod+a focus parent
 ## focus the child container
 #bindsym $mod+d focus child
 
+<<<<<<< HEAD
 ## move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
@@ -130,6 +135,18 @@ set $ws7 "7: Current Task"
 set $ws8 "8: Random"
 set $ws9 "9: Graphics"
 set $ws10 "10: Other"
+=======
+set $ws1    "1: Private"
+set $ws2    "2: Workbench"
+set $ws3    "3: Trello"
+set $ws4    "4: Social"
+set $ws5    "5: PPT/XLS"
+set $ws6    "6: Terminals"
+set $ws7    "7: Current Task"
+set $ws8    "8: Random"
+set $ws9    "9: Graphics"
+set $ws10   "10: Other"
+>>>>>>> 88976a25524f07a3276fe868cca073038a3fb8f7
 
 ## switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -210,7 +227,7 @@ bar {
 #bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 ## For settings on specific window use this command:
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 
 # hide_edge_borders both
 # default_border pixel 2
@@ -226,14 +243,20 @@ bindsym $mod+less		gaps inner current plus     5
 bindsym $mod+Shift+greater	gaps inner current minus    5
 
 ## Set lockscreen to binding $mod + shift + x
-bindsym $mod+shift+x exec i3lock-fancy
+bindsym $mod+shift+x exec i3lock-fancy -- scrot -z -m
+#bindsym $mod+shift+x exec i3lock-fancy --pixelate --greyscale -- scrot -z -m
 
 ## Set background picture
 exec_always feh --bg-scale ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
 
 ## Run Compton (window transparency extension)
+<<<<<<< HEAD
 # exec_always compton --config /etc/i3/compton.conf
 exec compton --config /etc/i3/compton.conf
+=======
+exec_always compton --config $HOME/.config/compton.conf
+#exec_always compton --config /etc/i3/compton.conf
+>>>>>>> 88976a25524f07a3276fe868cca073038a3fb8f7
 
 client.background		    #1E272B
 client.focused			    #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
@@ -242,7 +265,38 @@ client.focused_inactive	    #EAD49B #1E272B #EAD49B #78824B #78824B
 client.urgent			    #EAD49B #1E272B #EAD49B #78824B #78824B
 client.placeholder		    #EAD49B #1E272B #EAD49B #78824B #78824B
 
+<<<<<<< HEAD
 ## Screenshot 
+=======
+
+
+## Font for window titles. Will also be used by the bar unless a different font
+## is used in the bar {} block below.
+## font pango:Inconsolata-g for Powerline g 9
+font pango:DejaVu Sans Book 9
+
+
+## De-uglify i3 (https://askubuntu.com/questions/598943/how-to-de-uglify-i3-wm)
+## run this outside the config	
+## sudo apt-get install lxappearance gtk-chtheme qt4-qtconfig
+## Go to lxappearance and chose the theme
+exec --no-startup-id gnome-settings-daemon 
+
+## Network Manager applet
+exec --no-startup-id nm-applet
+
+## Autolock-er (Check this out later)
+## exec --no-startup-id xautolock -time 4 -locker "i3lock-wrapper -l"
+
+## Run Redshift (dimmers down blue light during late-night hours)
+#exec_always redshift-gtk
+#exec --no-startup-id redshift-gtk
+
+## Press $mod+Shift+s s or f to take a screen shot
+set $mode_screenshot Screenshot [s]election [f]ullscreen
+bindsym $mod+Shift+s mode "$mode_screenshot"
+
+>>>>>>> 88976a25524f07a3276fe868cca073038a3fb8f7
 ## Install: sudo apt install flameshot
 ## @see: https://flameshot.js.org/#/key-bindings
 
@@ -257,12 +311,22 @@ mode "$mode_screenshot" {
 bindsym $mod+Shift+s mode "$mode_screenshot"
 
 ## Monitor confguration loads
+<<<<<<< HEAD
 bindsym $mod+F1 exec ~/.screenlayout/laptop_only.sh
 bindsym $mod+F2 exec ~/.screenlayout/2_screen_layout.sh
 bindsym $mod+F3 exec ~/.screenlayout/external_only.sh
 bindsym $mod+F4 exec ~/.screenlayout/1_screen_home_layout.sh
 bindsym $mod+F5 exec ~/.screenlayout/2_screen_home_layout.sh
 bindsym $mod+F6 exec ~/.screenlayout/2_screen_office_layout.sh
+=======
+bindsym $mod+F1 exec $HOME/.screenlayout/laptop_only.sh
+bindsym $mod+F2 exec $HOME/.screenlayout/2_screen_layout.sh
+bindsym $mod+F3 exec $HOME/.screenlayout/external_only.sh
+bindsym $mod+F4 exec $HOME/.screenlayout/1_screen_home_layout.sh
+bindsym $mod+F5 exec $HOME/.screenlayout/2_screen_home_layout.sh
+bindsym $mod+F6 exec $HOME/.screenlayout/2_screen_office_layout.sh
+
+>>>>>>> 88976a25524f07a3276fe868cca073038a3fb8f7
 
 
 ## Pres $mod + Backspace to chose loc or suspend or... 
