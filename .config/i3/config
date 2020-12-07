@@ -29,7 +29,10 @@ set $mod Mod4
 floating_modifier $mod
 
 ## start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec i3-sensible-terminal
+## Install urxvt terminal
+bindsym $mod+Return exec urxvt
+
 
 ## kill focused window
 bindsym $mod+Shift+q kill
@@ -38,6 +41,7 @@ bindsym $mod+Shift+q kill
 ## There also is the (new) i3-dmenu-desktop which only displays applications
 ## shipping a .desktop file. It is a wrapper around dmenu, so you need that installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id Dexec rofi -show run
 
 ## change focus
 bindsym $mod+Left focus left
@@ -84,16 +88,16 @@ bindsym $mod+a focus parent
 ## focus the child container
 #bindsym $mod+d focus child
 
-set $ws1 "1: Private"
-set $ws2 "2: Workbench"
-set $ws3 "3: Trello"
-set $ws4 "4: Social"
-set $ws5 "5: PPT & XLS"
-set $ws6 "6" Terminals"
-set $ws7 "7" Current Task"
-set $ws8 "8" Random"
-set $ws9 "9" Graphics"
-set $ws10 "10" Other"
+set $ws1    "1: Private"
+set $ws2    "2: Workbench"
+set $ws3    "3: Trello"
+set $ws4    "4: Social"
+set $ws5    "5: PPT/XLS"
+set $ws6    "6: Terminals"
+set $ws7    "7: Current Task"
+set $ws8    "8: Random"
+set $ws9    "9: Graphics"
+set $ws10   "10: Other"
 
 ## switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -153,7 +157,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 ## For settings on specific window use this command:
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 
 # hide_edge_borders both
 # default_border pixel 2
@@ -184,13 +188,15 @@ bar {
 #exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 ## Set lockscreen to binding $mod + shift + x
-bindsym $mod+shift+x exec i3lock-fancy
+bindsym $mod+shift+x exec i3lock-fancy -- scrot -z -m
+#bindsym $mod+shift+x exec i3lock-fancy --pixelate --greyscale -- scrot -z -m
 
 ## Set background picture
 exec_always feh --bg-scale ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
 
 ## Run Compton (window transparency extension)
-exec_always compton --config /etc/i3/compton.conf
+exec_always compton --config $HOME/.config/compton.conf
+#exec_always compton --config /etc/i3/compton.conf
 
 client.background		    #1E272B
 client.focused			    #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
@@ -221,7 +227,7 @@ exec --no-startup-id nm-applet
 
 ## Run Redshift (dimmers down blue light during late-night hours)
 #exec_always redshift-gtk
-exec --no-startup-id redshift-gtk
+#exec --no-startup-id redshift-gtk
 
 ## Press $mod+Shift+s s or f to take a screen shot
 set $mode_screenshot Screenshot [s]election [f]ullscreen
@@ -239,12 +245,12 @@ mode "$mode_screenshot" {
 
 
 ## Monitor confguration loads
-bindsym $mod+F1 exec ~/.screenlayout/laptop_only.sh
-bindsym $mod+F2 exec ~/.screenlayout/2_screen_layout.sh
-bindsym $mod+F3 exec ~/.screenlayout/external_only.sh
-bindsym $mod+F4 exec ~/.screenlayout/1_screen_home_layout.sh
-bindsym $mod+F5 exec ~/.screenlayout/2_screen_home_layout.sh
-bindsym $mod+F6 exec ~/.screenlayout/2_screen_office_layout_temp.sh
+bindsym $mod+F1 exec $HOME/.screenlayout/laptop_only.sh
+bindsym $mod+F2 exec $HOME/.screenlayout/2_screen_layout.sh
+bindsym $mod+F3 exec $HOME/.screenlayout/external_only.sh
+bindsym $mod+F4 exec $HOME/.screenlayout/1_screen_home_layout.sh
+bindsym $mod+F5 exec $HOME/.screenlayout/2_screen_home_layout.sh
+bindsym $mod+F6 exec $HOME/.screenlayout/2_screen_office_layout.sh
 
 
 

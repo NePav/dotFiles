@@ -3,28 +3,107 @@
 sudo apt update
 sudo apt upgrade
 
+## Install fish shell and make it default
+sudo apt install fish
+chsh -s /usr/bin/fish
+
+## Install and configure Git
+sudo apt install git
+git config --global user.name   "NePav"
+git config --global user.email  "nenad.pavlovic@sentian.ai"
+git config --global color.ui auto
+
+## Copy and register old SSH keys
+#cp /path/to/my/key/id_rsa ~/.ssh/id_rsa
+#cp /path/to/my/key/id_rsa.pub ~/.ssh/id_rsa.pub
+## change permissions on file
+#sudo chmod 600 ~/.ssh/id_rsa
+#sudo chmod 600 ~/.ssh/id_rsa.pub
+## start the ssh-agent in the background
+#eval $(ssh-agent -s)
+## make ssh agent to actually use copied key
+#ssh-add ~/.ssh/id_rsa
+
+## Git clone my config files 
+git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits
+
+## In case of lsot git keys do the following:
+## Generate and install git key
+#ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/id_rsa
+##
+## Else, migrate the existing keys!!!
+## Generating new keys will require updating those to all places, such as git, 
+## where they are used.
+
+## Copy fonts
+cp -r ~/Documents/MyGits/dotFiles/.fonts/ ~/
+
+## Copy background wallpapers
+cp -r ~/Documents/MyGits/dotFiles/Background/ ~/Pictures/Background
+
+## Install ARandR
+sudo apt install arandr
+## Copy screen layouts
+cp -r ~/Documents/MyGits/dotFiles/.screenlayout/ ~/
+
+## Install feh
+sudo apt-get install feh
+
+## Install flameshot
+sudo apt install flameshot
+
+## Install htop
+sudo apt install htop
+
+## Install urxvt terminal
+sudo apt install rxvt-unicode
+# MANUAL ACTION!!! : Copy .Xresources to ~/
+# See: https://addy-dclxvi.github.io/post/configuring-urxvt/
+xrdb ~/.Xresources
+# Instal libraries required for urxvt
+git clone https://github.com/muennich/urxvt-perls.git ~/.urxvt/ext/
+
+## Install pywal. Color palet generator based on BG image
+pip3 install pywal
+# Chose current Background image name to generate pallet from
+wal -i ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
+
+##Add this lines to ~/.bash.rc (reminder: remove one # from each of the following lines)
+## Import colorscheme from 'wal' asynchronously
+## &   # Run the process in the background.
+## ( ) # Hide shell job control messages.
+#(cat ~/.cache/wal/sequences &)
+## Alternative (blocks terminal for 0-3ms)
+#cat ~/.cache/wal/sequences
+
+
+## Rofi is a launcher similar to dmenu that we used in the beginnings, but it is better. 
+sudo apt isntall rofi
 
 ## i3wm Ubuntu repository. Maybe must run these commented lines manualy!
-# /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
-# dpkg -i ./keyring.deb
-# echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
-# apt update
-# apt install i3
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
+sudo dpkg -i ./keyring.deb
+# sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+apt update
 
 ## Install i3wm
 sudo apt-get install i3
 sudo apt-get install i3-wm
 sudo apt-get install i3-wm-dbg
-sudo apt-get install i3-blocks
+sudo apt-get install i3blocks
 sudo apt-get install i3lock
 sudo apt-get install i3lock-fancy
 sudo apt-get install i3status
-sudo apt-get install i3
 
 ## Install i3gaps
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get update
 sudo apt-get install i3-gaps-wm
+
+## In case i3wm does not appear in the list of environments when you try to login, 
+## copy i3.desktop file into: /usr/share/applications/ and /usr/share/xsessions/
 
 ## !!! OPTIONAL - instead of i3-Blocks !!!
 ## Install Ploybar## Link: https://gist.github.com/kuznero/f4e983c708cd2bdcadc97be695baacf8
@@ -59,75 +138,27 @@ sudo apt-get install i3-gaps-wm
 ## install xorg
 sudo apt-get install xorg
 
-## Install and configure Git
-sudo apt-get install git
-
 ## Install compton
 sudo apt install compton
-
-## Install ARandR
-sudo apt install arandr
-
-## Install feh
-sudo apt-get install feh
 
 ## Install Redshift (screen blue colour dimmer)
 sudo apt-get redshift-gtk
 sudo apt-get redshift
 
-## Install and configure Git
-sudo app install git
-git config --global user.name   "NePav"
-git config --global user.email  "nenad.pavlovic@sentian.ai"
-
-## In case of lsot git keys do the following:
-## Generate and install git key
-#ssh-keygen -t rsa -b 4096 -C "nenad.pavlovic@sentian.ai" -f /home/nenad/.ssh/id_rsa
-# eval "$(ssh-agent -s)"
-# ssh-add ~/.ssh/id_rsa
-##
-## Else, migrate the existing keys!!!
-## Generating new keys will require updating those to all places, such as git, 
-## where they are used.
-
-## Clone my config files git repo
-cd Documents
-mkdir MyGitRepos
-cd MyGitRepos
-git clone git@github.com:NePav/dotFiles.git
-cd dotFiles
-
 ## Copy i3 config file
-sudo cp .config/i3/config /etc/i3/
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config /etc/i3/
 
 ## Copy i3-blocks config file
-sudo cp .config/i3blocks/i3blocks.config /etc/i3blocks.conf
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.config /etc/i3blocks.conf
 
-## Copy fonts
-cp -r .fonts/ ~/
-
-## Copy screen layouts
-cp -r .screenlayout/ ~/
 
 ## Copy compton config file
-sudo cp .config/compton.conf /etc/i3/
-
-## Copy background wallpapers
-cp -r Background/ ~/Pictures/
-
-## Back to the previous home folder
-cd ~/
-
-## Install flameshot
-sudo apt install flameshot
-
-## Install htop
-sudo apt install htop
+sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf /etc/i3/
 
 echo 'Logout from Gnome and log-in using i3-debug-WM)'
 
-## Create alias for settings control center
-echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.bash_aliases && source ~/.bash_aliases
+## Create alias for settings control center (if needed)
+#echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.bash_aliases && source ~/.bash_aliases
 
 ## Install Fish Shell from here: https://fishshell.com/
 ## Launch Shell
@@ -138,8 +169,8 @@ echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.b
 ## Install Ranger file manager
 sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 # Add devicons to Ranger
-git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1
-cd nerd-fonts
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/
+cd ~/Documents/MyGits/dotFiles/nerd-fonts
 ./install.sh
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
