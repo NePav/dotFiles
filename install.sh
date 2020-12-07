@@ -56,6 +56,16 @@ sudo apt install flameshot
 ## Install htop
 sudo apt install htop
 
+## Install net-tools
+sudo apt install net-tools
+
+## Install Slack
+sudo snap install slack --classic
+
+## Install i3 prerequisites
+apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
+
+
 ## i3wm Ubuntu repository. Maybe must run these commented lines manualy!
 /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
 sudo dpkg -i ./keyring.deb
@@ -74,7 +84,7 @@ sudo apt-get install i3status
 ## Install i3gaps
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get update
-sudo apt-get install i3-gaps-wm
+sudo apt-get install i3-gaps
 
 ## !!! OPTIONAL - instead of i3-Blocks !!!
 ## Install Ploybar## Link: https://gist.github.com/kuznero/f4e983c708cd2bdcadc97be695baacf8
