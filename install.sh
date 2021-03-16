@@ -142,7 +142,6 @@ sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config /etc/i3/
 ## Copy i3-blocks config file
 sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.conf /etc/i3blocks.conf
 
-
 ## Copy compton config file
 sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf /etc/i3/
 
@@ -150,9 +149,15 @@ sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf /etc/i3/
 ##        THE END      ##
 ##      of Step 1 !    ##
 #########################
-
-
 echo 'Logout from Gnome and log-in using i3-debug-WM)'
+
+
+
+
+#########################
+##        Step 2       ##
+##      after reboot   ##
+#########################
 
 ## Create alias for settings control center
 echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.bash_aliases && source ~/.bash_aliases
@@ -166,16 +171,9 @@ echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.b
 ## Install Ranger file manager
 sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 # Add devicons to Ranger
-<<<<<<< HEAD
 cd ~/Documents/MyGits/
-git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 
-cd nerd-fonts
-=======
-git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/dotFiles/nerd-fonts/
-cd ~/Documents/MyGits/dotFiles/nerd-fonts
->>>>>>> 745fad8dfc768ebe62e82ebc0bc03990d800fd98
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/nerd-fonts/
+cd ~/Documents/MyGits/nerd-fonts
 ./install.sh
 cd ~/
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-
-
