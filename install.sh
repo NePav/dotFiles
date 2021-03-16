@@ -24,7 +24,7 @@ git config --global user.email  "nenad.pavlovic@sentian.ai"
 #ssh-add ~/.ssh/id_rsa
 
 ## Git clone my config files 
-git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits
+git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits/
 
 ## In case of lsot git keys do the following:
 ## Generate and install git key
@@ -63,23 +63,26 @@ sudo apt install net-tools
 sudo snap install slack --classic
 
 ## Install i3 prerequisites
-apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
+sudo apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
 
 
 ## i3wm Ubuntu repository. Maybe must run these commented lines manualy!
-/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2021.02.02_all.deb keyring.deb SHA256:cccfb1dd7d6b1b6a137bb96ea5b5eef18a0a4a6df1d6c0c37832025d2edaa710
 sudo dpkg -i ./keyring.deb
 # sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
 apt update
 
 ## Install i3wm
-sudo apt-get install i3
-sudo apt-get install i3-wm
-sudo apt-get install i3-wm-dbg
-sudo apt-get install i3blocks
-sudo apt-get install i3lock
-sudo apt-get install i3lock-fancy
-sudo apt-get install i3status
+## All at once
+sudo apt-get install i3 i3-wm i3-wm-dbg i3blocks i3lock i3lock-fancy i3status
+## One by one
+#sudo apt-get install i3
+#sudo apt-get install i3-wm 
+#sudo apt-get install i3-wm-dbg
+#sudo apt-get install i3blocks
+#sudo apt-get install i3lock
+#sudo apt-get install i3lock-fancy
+#sudo apt-get install i3status
 
 ## Install i3gaps
 sudo add-apt-repository ppa:kgilmer/speed-ricer
@@ -123,20 +126,23 @@ sudo apt-get install xorg
 sudo apt install compton
 
 ## Install Redshift (screen blue colour dimmer)
-sudo apt-get redshift-gtk
-sudo apt-get redshift
+sudo apt install redshift-gtk
+sudo apt install redshift
 
 ## Copy i3 config file
 sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config /etc/i3/
 
 ## Copy i3-blocks config file
-sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.config /etc/i3blocks.conf
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.conf /etc/i3blocks.conf
 
 
 ## Copy compton config file
 sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf /etc/i3/
 
-
+#########################
+##        THE END      ##
+##      of Step 1 !    ##
+#########################
 
 
 echo 'Logout from Gnome and log-in using i3-debug-WM)'
