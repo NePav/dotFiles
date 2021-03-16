@@ -62,6 +62,10 @@ sudo apt install net-tools
 ## Install Slack
 sudo snap install slack --classic
 
+
+## Install pywal
+sudo pip3 install pywal
+
 ## Install i3 prerequisites
 apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
 
@@ -153,9 +157,11 @@ echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.b
 ## Install Ranger file manager
 sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 # Add devicons to Ranger
-git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/
-cd ~/Documents/MyGits/dotFiles/nerd-fonts
+cd ~/Documents/MyGits/
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 
+cd nerd-fonts
 ./install.sh
+cd ~/
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 
