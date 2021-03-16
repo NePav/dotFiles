@@ -162,6 +162,7 @@ sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediain
 git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/dotFiles/nerd-fonts/
 cd ~/Documents/MyGits/dotFiles/nerd-fonts
 ./install.sh
+cd ~/
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
 
 
