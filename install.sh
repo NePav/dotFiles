@@ -24,7 +24,7 @@ git config --global user.email  "nenad.pavlovic@sentian.ai"
 #ssh-add ~/.ssh/id_rsa
 
 ## Git clone my config files 
-git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits/
+git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits/dotFiles/
 
 ## In case of lsot git keys do the following:
 ## Generate and install git key
@@ -159,7 +159,7 @@ echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.b
 ## Install Ranger file manager
 sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 # Add devicons to Ranger
-git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/nerd-fonts/
 cd ~/Documents/MyGits/dotFiles/nerd-fonts
 ./install.sh
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
