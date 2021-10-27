@@ -145,15 +145,15 @@ sudo apt install redshift
 sudo apt install policykit-1-gnome
 
 ## Copy i3 config file
-sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config  ~/.config/i3/
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config  ~/.config/i3/config
 
 ## Copy i3-blocks config file
 mkdir ~/.config/i3blocks/
-sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.conf ~/.config/i3blocks/i3blocks.conf
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.conf ~/.config/i3/i3blocks.conf
 
 ## Copy compton config file
 mkdir ~/.config/compton
-sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf ~/.config/compton/compton.conf
+sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf ~/.config/i3/compton.conf
 
 #########################
 ##        THE END      ##
