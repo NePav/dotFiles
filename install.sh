@@ -71,16 +71,22 @@ sudo pip3 install pywal
 ## Install i3 prerequisites
 sudo apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
 
+## i3wm installation (Official i3wm repo)
+## https://i3wm.org/docs/repositories.html
 
 ## i3wm Ubuntu repository. Maybe must run these commented lines manualy!
 /usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2021.02.02_all.deb keyring.deb SHA256:cccfb1dd7d6b1b6a137bb96ea5b5eef18a0a4a6df1d6c0c37832025d2edaa710
-sudo dpkg -i ./keyring.deb
-# sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
-apt update
+sudo su root
+dpkg -i ./keyring.deb
+echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+exit
+sudo apt update
+sudo apt install i3
 
-## Install i3wm
+
+## Install i3wm from (Debian managed repo - older version)
 ## All at once
-sudo apt-get install i3 i3-wm i3-wm-dbg i3blocks i3lock i3lock-fancy i3status
+#sudo apt-get install i3 i3-wm i3-wm-dbg i3blocks i3lock i3lock-fancy i3status
 ## One by one
 #sudo apt-get install i3
 #sudo apt-get install i3-wm 
