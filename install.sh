@@ -83,8 +83,15 @@ exit
 sudo apt update
 sudo apt install i3
 
+## Install i3gaps
+sudo add-apt-repository ppa:kgilmer/speed-ricer
+sudo apt-get update
+sudo apt-get install i3-gaps
+sudo apt-get install i3blocks
+sudo apt-get install i3lock-fancy
+# sudo apt-get install i3status #isntalled with i3wm 
 
-## Install i3wm from (Debian managed repo - older version)
+## Install i3wm + i3blocks + i3gaps from (Debian managed repo - older version)
 ## All at once
 #sudo apt-get install i3 i3-wm i3-wm-dbg i3blocks i3lock i3lock-fancy i3status
 ## One by one
@@ -96,10 +103,6 @@ sudo apt install i3
 #sudo apt-get install i3lock-fancy
 #sudo apt-get install i3status
 
-## Install i3gaps
-sudo add-apt-repository ppa:kgilmer/speed-ricer
-sudo apt-get update
-sudo apt-get install i3-gaps
 
 ## !!! OPTIONAL - instead of i3-Blocks !!!
 ## Install Ploybar## Link: https://gist.github.com/kuznero/f4e983c708cd2bdcadc97be695baacf8
