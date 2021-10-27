@@ -62,6 +62,8 @@ sudo apt install net-tools
 ## Install Slack
 sudo snap install slack --classic
 
+## Install pip
+sudo pip3 install pip
 
 ## Install pywal
 sudo pip3 install pywal
