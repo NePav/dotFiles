@@ -24,7 +24,7 @@ git config --global user.email  "nenad.pavlovic@sentian.ai"
 #ssh-add ~/.ssh/id_rsa
 
 ## Git clone my config files 
-git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits
+git clone https://github.com/NePav/dotFiles.git ~/Documents/MyGits/dotFiles/
 
 ## In case of lsot git keys do the following:
 ## Generate and install git key
@@ -62,29 +62,47 @@ sudo apt install net-tools
 ## Install Slack
 sudo snap install slack --classic
 
-## Install i3 prerequisites
-apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
+## Install pip
+sudo pip3 install pip
 
+## Install pywal
+sudo pip3 install pywal
+
+## Install i3 prerequisites
+sudo apt install feh fonts-font-awesome rofi pulseaudio-utils xbacklight alsa-tools clipit gcc git terminator locate pcmanfm acpi libnotify-bin
+
+## i3wm installation (Official i3wm repo)
+## https://i3wm.org/docs/repositories.html
 
 ## i3wm Ubuntu repository. Maybe must run these commented lines manualy!
-/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2020.02.03_all.deb keyring.deb SHA256:c5dd35231930e3c8d6a9d9539c846023fe1a08e4b073ef0d2833acd815d80d48
-sudo dpkg -i ./keyring.deb
-# sudo echo "deb https://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
-apt update
-
-## Install i3wm
-sudo apt-get install i3
-sudo apt-get install i3-wm
-sudo apt-get install i3-wm-dbg
-sudo apt-get install i3blocks
-sudo apt-get install i3lock
-sudo apt-get install i3lock-fancy
-sudo apt-get install i3status
+/usr/lib/apt/apt-helper download-file https://debian.sur5r.net/i3/pool/main/s/sur5r-keyring/sur5r-keyring_2021.02.02_all.deb keyring.deb SHA256:cccfb1dd7d6b1b6a137bb96ea5b5eef18a0a4a6df1d6c0c37832025d2edaa710
+sudo su root
+dpkg -i ./keyring.deb
+echo "deb http://debian.sur5r.net/i3/ $(grep '^DISTRIB_CODENAME=' /etc/lsb-release | cut -f2 -d=) universe" >> /etc/apt/sources.list.d/sur5r-i3.list
+exit
+sudo apt update
+sudo apt install i3
 
 ## Install i3gaps
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get update
 sudo apt-get install i3-gaps
+sudo apt-get install i3blocks
+sudo apt-get install i3lock-fancy
+# sudo apt-get install i3status #isntalled with i3wm 
+
+## Install i3wm + i3blocks + i3gaps from (Debian managed repo - older version)
+## All at once
+#sudo apt-get install i3 i3-wm i3-wm-dbg i3blocks i3lock i3lock-fancy i3status
+## One by one
+#sudo apt-get install i3
+#sudo apt-get install i3-wm 
+#sudo apt-get install i3-wm-dbg
+#sudo apt-get install i3blocks
+#sudo apt-get install i3lock
+#sudo apt-get install i3lock-fancy
+#sudo apt-get install i3status
+
 
 ## !!! OPTIONAL - instead of i3-Blocks !!!
 ## Install Ploybar## Link: https://gist.github.com/kuznero/f4e983c708cd2bdcadc97be695baacf8
@@ -123,23 +141,36 @@ sudo apt-get install xorg
 sudo apt install compton
 
 ## Install Redshift (screen blue colour dimmer)
-sudo apt-get redshift-gtk
-sudo apt-get redshift
+sudo apt install redshift-gtk
+sudo apt install redshift
+
+## Install polkit packages
+sudo apt install policykit-1-gnome
 
 ## Copy i3 config file
-sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config /etc/i3/
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3/config  ~/.config/i3/config
 
 ## Copy i3-blocks config file
-sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.config /etc/i3blocks.conf
-
+mkdir ~/.config/i3blocks/
+sudo cp ~/Documents/MyGits/dotFiles/.config/i3blocks/i3blocks.conf ~/.config/i3/i3blocks.conf
 
 ## Copy compton config file
-sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf /etc/i3/
+mkdir ~/.config/compton
+sudo cp ~/Documents/MyGits/dotFiles/.config/compton.conf ~/.config/i3/compton.conf
 
-
-
-
+#########################
+##        THE END      ##
+##      of Step 1 !    ##
+#########################
 echo 'Logout from Gnome and log-in using i3-debug-WM)'
+
+
+
+
+#########################
+##        Step 2       ##
+##      after reboot   ##
+#########################
 
 ## Create alias for settings control center
 echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.bash_aliases && source ~/.bash_aliases
@@ -153,9 +184,9 @@ echo "my_settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center'"  >> ~/.b
 ## Install Ranger file manager
 sudo apt-get install ranger caca-utils highlight atool w3m poppler-utils mediainfo
 # Add devicons to Ranger
-git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/
-cd ~/Documents/MyGits/dotFiles/nerd-fonts
+cd ~/Documents/MyGits/
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1 ~/Documents/MyGits/nerd-fonts/
+cd ~/Documents/MyGits/nerd-fonts
 ./install.sh
+cd ~/
 git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
-
-
