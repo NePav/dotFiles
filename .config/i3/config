@@ -40,6 +40,9 @@ bindsym XF86AudioLowerVolume exec 	--no-startup-id pactl set-sink-volume @DEFAUL
 bindsym XF86AudioMute exec 		--no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec 		--no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+## Polikit authentication agent
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+
 ## use these keys for focus, movement, and resize directions when reaching for
 ## the arrows is not convenient
 set $up 	Up
@@ -75,7 +78,7 @@ bindsym $mod+$right 	focus right
 ## move focused window
 bindsym $mod+Shift+$left 	move left
 bindsym $mod+Shift+$down 	move down
-bindsym $mod+Shift+$up 	move up
+bindsym $mod+Shift+$up 	        move up
 bindsym $mod+Shift+$right 	move right
 
 ## Move the current workspace to the next output
@@ -232,13 +235,13 @@ bindsym $mod+shift+x exec i3lock-fancy
 exec_always feh --bg-scale ~/Pictures/Background/bg_creative_1_3440_1440.jpeg
 
 ## Run Compton (window transparency extension)
-# exec_always compton --config /etc/i3/compton.conf
-exec compton --config /etc/i3/compton.conf
+exec_always compton --config ~/.config/compton.conf
+#exec compton --config ~/.config/compton.conf
 
 client.background		    #1E272B
 client.focused			    #EAD49B #1E272B #EAD49B #9D6A47 #9D6A47
 client.unfocused		    #EAD49B #1E272B #EAD49B #78824B #78824B
-client.focused_inactive	    #EAD49B #1E272B #EAD49B #78824B #78824B
+client.focused_inactive	            #EAD49B #1E272B #EAD49B #78824B #78824B
 client.urgent			    #EAD49B #1E272B #EAD49B #78824B #78824B
 client.placeholder		    #EAD49B #1E272B #EAD49B #78824B #78824B
 
